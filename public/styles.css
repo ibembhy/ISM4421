@@ -37,7 +37,7 @@ body {
   justify-content: space-between;
 }
 .brand { display: flex; align-items: center; gap: 10px; }
-.brand-logo { height: 44px; width: auto; background: #fff; border-radius: 4px; padding: 3px; }
+.brand-logo { height: 48px; width: auto; }
 .wordmark {
   background: #fff; color: var(--fau-blue);
   font-weight: 900; font-size: 1.4rem; letter-spacing: 1px;

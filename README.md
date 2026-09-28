@@ -14,12 +14,8 @@ netlify.toml          Netlify config (publish dir = public, no build)
 public/index.html
 public/styles.css
 public/app.js
-public/assets/        favicon.svg; put fau-logo.png here
+public/assets/        favicon.svg, fau-logo.png
 ```
-
-## Add the FAU logo
-
-Save the official logo as `public/assets/fau-logo.png`. Until that file exists, the header shows an "FAU" text wordmark.
 
 ## Run locally
 
