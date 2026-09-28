@@ -1,0 +1,130 @@
+/* FAU brand colors */
+:root {
+  --fau-blue: #003366;
+  --fau-red: #cc0000;
+  --fau-gray: #8a8d8f;
+  --bg: #f3f5f8;
+  --card: #ffffff;
+  --text: #1a1a1a;
+  --muted: #5f6b76;
+  --border: #dde3ea;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0);
+}
+
+/* Header */
+.site-header {
+  background: var(--fau-blue);
+  border-bottom: 5px solid var(--fau-red);
+  color: #fff;
+  padding: 12px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-logo { height: 48px; width: auto; }
+.wordmark {
+  background: #fff; color: var(--fau-blue);
+  font-weight: 900; font-size: 1.4rem; letter-spacing: 1px;
+  padding: 2px 8px; border-radius: 4px; border-bottom: 3px solid var(--fau-red);
+}
+.brand-title { font-size: 1.3rem; font-weight: 700; }
+
+/* Search */
+.search { position: relative; display: flex; gap: 6px; flex: 1 1 260px; max-width: 420px; }
+.search input {
+  flex: 1; min-width: 0; padding: 9px 12px; border-radius: 6px; border: none; font-size: 1rem;
+}
+.search button {
+  padding: 9px 14px; border: none; border-radius: 6px; cursor: pointer;
+  background: var(--fau-red); color: #fff; font-weight: 600; font-size: 1rem;
+}
+.search button:hover { background: #a80000; }
+.search-results {
+  position: absolute; top: 100%; left: 0; right: 0; z-index: 10;
+  margin: 4px 0 0; padding: 0; list-style: none;
+  background: #fff; color: var(--text); border-radius: 6px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.2); overflow: hidden;
+}
+.search-results button {
+  width: 100%; text-align: left; padding: 10px 12px; border: none; background: none;
+  cursor: pointer; font-size: .95rem; border-bottom: 1px solid var(--border);
+}
+.search-results button:hover, .search-results button:focus { background: #e8eef5; }
+
+/* Layout */
+.container { max-width: 960px; margin: 0 auto; padding: 16px; display: grid; gap: 16px; }
+.container > * { min-width: 0; } /* keep the hourly strip scrolling inside its card */
+.card {
+  background: var(--card); border-radius: 10px; padding: 16px;
+  border-top: 4px solid var(--fau-blue); box-shadow: 0 1px 4px rgba(0,0,0,.06);
+}
+.card h2 { margin: 0 0 12px; font-size: 1.1rem; color: var(--fau-blue); }
+.status { margin: 0; color: var(--muted); }
+.status.error { color: var(--fau-red); font-weight: 600; }
+.muted { color: var(--muted); margin: 2px 0 0; font-size: .9rem; }
+
+/* Current */
+.current h1 { margin: 0; font-size: 1.5rem; color: var(--fau-blue); }
+.current-main { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
+.big-icon { font-size: 3.5rem; line-height: 1; }
+.big-temp { font-size: 3.5rem; font-weight: 700; color: var(--fau-blue); }
+.current-desc { margin: 4px 0 12px; font-size: 1.1rem; }
+.stats {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px; margin: 0;
+}
+.stats div { background: var(--bg); border-radius: 8px; padding: 8px 10px; }
+.stats dt { font-size: .8rem; color: var(--muted); }
+.stats dd { margin: 2px 0 0; font-weight: 600; }
+
+/* Hourly */
+.hourly {
+  display: flex; gap: 8px; overflow-x: auto; list-style: none; margin: 0; padding: 0 0 6px;
+}
+.hourly li {
+  flex: 0 0 72px; text-align: center; background: var(--bg);
+  border-radius: 8px; padding: 8px 4px; font-size: .9rem;
+}
+.hourly .icon { font-size: 1.5rem; display: block; margin: 4px 0; }
+.hourly .temp { font-weight: 700; }
+.precip { color: #1f6fb2; font-size: .8rem; }
+
+/* Daily */
+.daily { list-style: none; margin: 0; padding: 0; }
+.daily li {
+  display: grid; grid-template-columns: 105px 36px 1fr auto; gap: 10px;
+  align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border);
+}
+.daily li:last-child { border-bottom: none; }
+.daily .day { font-weight: 600; }
+.daily .icon { font-size: 1.5rem; }
+.daily .desc { color: var(--muted); font-size: .9rem; }
+.daily .range { font-weight: 600; white-space: nowrap; }
+.daily .lo { color: var(--muted); font-weight: 400; margin-left: 6px; }
+
+/* Footer */
+.site-footer {
+  text-align: center; padding: 20px 16px; color: var(--muted); font-size: .85rem;
+}
+.site-footer a { color: var(--fau-blue); }
+
+@media (max-width: 480px) {
+  .daily li { grid-template-columns: 1fr 30px auto; }
+  .daily .desc { display: none; }
+}
