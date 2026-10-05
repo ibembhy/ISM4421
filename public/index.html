@@ -12,22 +12,41 @@
 <body>
   <header class="site-header">
     <div class="brand">
-      <!-- Drop the official logo at public/assets/fau-logo.png. Until then the text wordmark shows. -->
       <img class="brand-logo" src="assets/fau-logo.png" alt="Florida Atlantic University"
            onerror="this.hidden=true; document.getElementById('wordmark').hidden=false;">
       <span id="wordmark" class="wordmark" hidden>FAU</span>
       <span class="brand-title">Owl Weather</span>
     </div>
-    <form id="search-form" class="search" autocomplete="off" role="search">
+    <form id="search-form" class="search" autocomplete="off" role="search" hidden>
       <label for="search-input" class="visually-hidden">Search city</label>
       <input id="search-input" type="search" placeholder="Search a city…" required>
       <button type="submit">Search</button>
       <ul id="search-results" class="search-results" hidden></ul>
     </form>
+    <div id="user-bar" class="user-bar" hidden>
+      <span id="user-email"></span>
+      <button id="sign-out" type="button">Sign out</button>
+    </div>
   </header>
 
   <main class="container">
-    <p id="status" class="status" role="status">Loading weather…</p>
+    <section id="auth" class="card auth" hidden>
+      <h1 id="auth-title">Sign in</h1>
+      <form id="auth-form">
+        <label for="auth-email">Email</label>
+        <input id="auth-email" type="email" autocomplete="email" required>
+        <label for="auth-password">Password</label>
+        <input id="auth-password" type="password" autocomplete="current-password" minlength="6" required>
+        <button id="auth-submit" type="submit">Sign in</button>
+      </form>
+      <p id="auth-message" class="auth-message" role="alert"></p>
+      <p class="muted">
+        <span id="auth-switch-text">No account?</span>
+        <button id="auth-switch" type="button" class="link-button">Create one</button>
+      </p>
+    </section>
+
+    <p id="status" class="status" role="status" hidden></p>
 
     <section id="current" class="card current" hidden>
       <div>
@@ -65,6 +84,9 @@
     Go Owls!
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
   <script src="app.js"></script>
+  <script src="auth.js"></script>
 </body>
 </html>
