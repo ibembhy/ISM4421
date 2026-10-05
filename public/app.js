@@ -209,4 +209,13 @@ function initialLocation() {
   return DEFAULT_LOCATION;
 }
 
-loadWeather(initialLocation());
+// auth.js calls these when the user signs in or out.
+function showWeather() {
+  $("search-form").hidden = false;
+  loadWeather(initialLocation());
+}
+
+function hideWeather() {
+  ["search-form", "search-results", "current", "hourly-section", "daily-section"].forEach((id) => ($(id).hidden = true));
+  setStatus("");
+}

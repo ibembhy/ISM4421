@@ -5,6 +5,7 @@ A weather app styled with FAU colors. It opens on Boca Raton and uses the free [
 - Current conditions, the next 24 hours, and a 7-day forecast (°F, mph)
 - City search through the Open-Meteo Geocoding API
 - Remembers the last city you picked (localStorage)
+- Email + password login (Supabase Auth); the weather only shows when you're signed in
 - Plain HTML/CSS/JS: no build step and no dependencies
 
 ## Files
@@ -13,9 +14,19 @@ A weather app styled with FAU colors. It opens on Boca Raton and uses the free [
 netlify.toml          Netlify config (publish dir = public, no build)
 public/index.html
 public/styles.css
-public/app.js
+public/app.js         weather
+public/auth.js        login / sign up / sign out
+public/config.js      Supabase URL + publishable key (safe to be public)
 public/assets/        favicon.svg, fau-logo.png
 ```
+
+## Login setup (Supabase project `notekeeper`)
+
+In the Supabase dashboard, under Authentication:
+- **Sign In / Providers → Email → Confirm email: OFF**. Supabase's built-in email sender only delivers to your project's team members, so with confirmation ON nobody else can finish signing up. (Turn it back on after adding your own SMTP server.)
+- **URL Configuration → Site URL:** set it to your Netlify URL. Confirmation emails link there.
+
+Users show up under Authentication → Users.
 
 ## Run locally
 

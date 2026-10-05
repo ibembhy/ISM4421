@@ -11,6 +11,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 
 body {
   margin: 0;
@@ -128,3 +129,32 @@ body {
   .daily li { grid-template-columns: 1fr 30px auto; }
   .daily .desc { display: none; }
 }
+
+/* Auth */
+.auth { max-width: 400px; width: 100%; margin: 24px auto 0; }
+.auth h1 { margin: 0 0 12px; font-size: 1.4rem; color: var(--fau-blue); }
+.auth form { display: grid; gap: 6px; }
+.auth label { font-size: .9rem; font-weight: 600; margin-top: 6px; }
+.auth input {
+  padding: 10px 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem;
+}
+.auth input:focus { outline: 2px solid var(--fau-blue); outline-offset: 1px; }
+.auth button[type=submit] {
+  margin-top: 12px; padding: 10px; border: none; border-radius: 6px; cursor: pointer;
+  background: var(--fau-blue); color: #fff; font-weight: 700; font-size: 1rem;
+}
+.auth button[type=submit]:disabled { opacity: .6; cursor: wait; }
+.auth-message { min-height: 1.2em; margin: 10px 0 0; font-size: .9rem; }
+.auth-message.error { color: var(--fau-red); font-weight: 600; }
+.link-button {
+  background: none; border: none; padding: 0; cursor: pointer;
+  color: var(--fau-blue); font-weight: 600; text-decoration: underline; font-size: inherit;
+}
+
+.user-bar { display: flex; align-items: center; gap: 10px; font-size: .9rem; }
+.user-bar span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 200px; }
+.user-bar button {
+  padding: 6px 12px; border: 1px solid #fff; border-radius: 6px; cursor: pointer;
+  background: transparent; color: #fff; font-weight: 600;
+}
+.user-bar button:hover { background: rgba(255,255,255,.15); }
